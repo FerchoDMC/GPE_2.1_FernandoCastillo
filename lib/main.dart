@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -120,7 +121,129 @@ class HomePage extends StatelessWidget {
           ),
 
           const SizedBox(height: 24),
+
+          // Widget 5 ── Image.network
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.network(
+              'https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png',
+              height: 120,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) => const Center(
+                child: Icon(Icons.broken_image, color: Colors.white54, size: 60),
+              ),
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return const Center(
+                  child: CircularProgressIndicator(color: Color(0xFF00E1FF)),
+                );
+              },
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // ── Card con elevation y RoundedRectangleBorder personalizados ───
+          // RoundedRectangleBorder: permite definir bordes redondeados en widgets
+          Card(
+            elevation: 8,
+            color: const Color(0xFF1B2A3B),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: const BorderSide(color: Color(0xFF00E1FF), width: 1.5),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  const Text(
+                    'Información de contacto',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Divider(color: Color(0xFF00E1FF), height: 20),
+                  Row(
+                    children: const [
+                      Icon(Icons.email, color: Color(0xFF00E1FF), size: 20),
+                      SizedBox(width: 10),
+                      Text(
+                        'fecastilloar@uide.edu.ec',
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: const [
+                      Icon(Icons.school, color: Color(0xFF00E1FF), size: 20),
+                      SizedBox(width: 10),
+                      Text(
+                        'UIDE - Quinto Semestre',
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // Widget 6 ── ElevatedButton con debugPrint en onPressed
+          Center(
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF00E1FF),
+                foregroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              icon: const Icon(Icons.send),
+              label: const Text(
+                'Enviar mensaje',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              onPressed: () async {
+                // debugPrint: imprime en consola de depuración
+                debugPrint('Abriendo WhatsApp: wa.me/593986285316');
+                final Uri url = Uri.parse('https://wa.me/593986285316/?text=Hola%20Fernando%20Castillo');
+                if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+                  debugPrint('No se pudo abrir WhatsApp');
+                }
+              },
+            ),
+          ),
+
+          const SizedBox(height: 30),
         ],
+      ),
+
+      // ── FloatingActionButton con SnackBar via ScaffoldMessenger ──────────
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xFF00E1FF),
+        foregroundColor: Colors.black,
+        tooltip: 'Saludar',
+        onPressed: () {
+          // ScaffoldMessenger: manera correcta de mostrar SnackBars en Flutter
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('¡Hola! Soy Fercho DMC 👋'),
+              backgroundColor: const Color.fromARGB(255, 165, 205, 251),
+              behavior: SnackBarBehavior.floating,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              duration: const Duration(seconds: 3),
+            ),
+          );
+        },
+        child: const Icon(Icons.waving_hand),
       ),
     );
   }

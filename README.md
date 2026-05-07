@@ -1,17 +1,33 @@
-# fenando_castillo_s1
+# Mi Perfil — S2_A1
 
-A new Flutter project.
+**Actividad 1 · Programación Móvil · Quinto Semestre**
 
-## Getting Started
+Aplicación Flutter que muestra un perfil personal con foto, información de contacto, imagen de red, tarjeta de datos y botones interactivos.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 👤 Autor
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+**Fernando Castillo**  
+Ingeniería en Tecnologías de la Información — UIDE  
+C.I.: 1150076980
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 📸 Captura de la aplicación
+
+![App corriendo en dispositivo](capturas/device.jpg)
+
+---
+
+## 🚀 Cómo ejecutar
+
+Asegúrate de tener [Flutter](https://flutter.dev/docs/get-started/install) instalado y un dispositivo/emulador conectado, luego ejecuta:
+
+```bash
+flutter pub get
+flutter run
+```
+
+> Para elegir un dispositivo específico usa `flutter run -d <device_id>`.  
+> Puedes ver los dispositivos disponibles con `flutter devices`.
