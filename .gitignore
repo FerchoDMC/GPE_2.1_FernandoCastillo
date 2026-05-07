@@ -1,0 +1,69 @@
+# Standard Flutter gitignore
+# https://github.com/github/gitignore/blob/main/Dart.gitignore
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.idea/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode/ directory contains results used by
+# VS Code in order to provide settings for a project.
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/App.podspec
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets.zip
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.[mh]
+**/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+**/android/gen
+**/android/local.properties
+**/android/project.properties
+**/android/app/libs/armeabi-v7a/libflutter.so
+**/android/app/libs/arm64-v8a/libflutter.so
+**/android/app/libs/x86_64/libflutter.so
+**/android/app/libs/x86/libflutter.so
+**/build/
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/.dart_tool/
+**/pubspec.lock
+
+# Symbolic links
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Web related
+**/build/web/
+
+# Windows related
+**/build/windows/
+
+# macOS related
+**/build/macos/
+
+# Linux related
+**/build/linux/
